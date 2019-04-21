@@ -10,14 +10,24 @@ namespace TestApplication
 		private SearchPage _searchPage;
 		private ProductPage _productPage;
 
+		string baseUrl = "https://rozetka.com.ua";
+
 		[Test]
+		[Description(@"
+		Steps:
+		1. Open Rozetka site
+		2. Do search by 'iphone se' term
+		3. Select any device with pink color
+		4. Change color to 'Space Grey'
+		5. Add product to cart")]
 		public void AutotestTest()
 		{
-			driver.Navigate().GoToUrl("https://rozetka.com.ua");
-			MainPage.FillSearchField("iphone");
-			MainPage.SelectDropdownProduct("iphone se");
+			driver.Navigate().GoToUrl(baseUrl);
+			MainPage.FillSearchField("iphone")
+				.SelectDropdownProduct("iphone se");
 			SearchPage.SelectRandomProductWithColor(Color.Pink);
-			ProductPage.SelectColor(Color.Silver);
+			ProductPage.SelectColor(Color.SilverGrey);
+			ProductPage.AddToCart();
 		}
 
 		private MainPage MainPage => _mainPage ?? (_mainPage = new MainPage(driver));
