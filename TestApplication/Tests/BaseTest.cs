@@ -19,6 +19,5 @@ namespace TestApplication
 		{
 			driver.Quit();
 		}
-
     }
 }

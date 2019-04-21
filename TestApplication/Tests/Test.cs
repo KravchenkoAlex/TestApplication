@@ -5,15 +5,15 @@ namespace TestApplication
 {
 	public class Test : BaseTest
 	{
-		private SearchField _searchField;
+		private MainPage _mainPage;
 
 		[Test]
 		public void AutotestTest()
 		{
 			driver.Navigate().GoToUrl("https://rozetka.com.ua");
-			SearchField.FillSearchField("iphone");
+			MainPage.FillSearchField("iphone");
 		}
 
-		private SearchField SearchField => _searchField ?? (_searchField = new SearchField(driver));
+		private MainPage MainPage => _mainPage ?? (_mainPage = new MainPage(driver));
 	}
 }

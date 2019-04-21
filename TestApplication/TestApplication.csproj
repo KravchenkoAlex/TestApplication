@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\PageObjects\PageObject.cs" />
-    <Compile Include="Common\PageObjects\SearchField.cs" />
+    <Compile Include="Common\PageObjects\MainPage.cs" />
     <Compile Include="Common\PageObjects\SearchPage.cs" />
     <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
