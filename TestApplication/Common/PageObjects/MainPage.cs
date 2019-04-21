@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using TestApplication.Common.Extensions;
 
 namespace TestApplication.Common.PageObjects
 {
@@ -13,18 +14,21 @@ namespace TestApplication.Common.PageObjects
 		[FindsBy(How = How.XPath, Using = "//*[contains(text(), 'Найти')]")]
 		private IWebElement _searchButton { get; set; }
 
-		[FindsBy(How = How.XPath, Using = @"//ul[@class = 'suggest-list']/li[@data-name = '{0}']")]
-		private IWebElement _dropdownProduct { get; set; }
-		
-		public void FillSearchField(string searchTerm)
+		private IWebElement FindProductByTerm(string product)
 		{
-			_searchField.SendKeys(searchTerm);
+			return driver.FindElement(By.XPath($"//ul[@class = 'suggest-list']/li[@data-name = '{product}']"));
 		}
 
-		public void SelectProductFromDropDown(string searchTerm)
+		public MainPage FillSearchField(string searchTerm)
 		{
-			string.Format(_dropdownProduct.Text, searchTerm);
-			_dropdownProduct.Click();
+			_searchField.SendKeys(searchTerm);
+			return this;
+		}
+
+		public void SelectDropdownProduct(string searchTerm)
+		{
+			driver.WaitForElementToBeClickable(By.XPath("//ul[@class = 'suggest-list']"));
+			FindProductByTerm(searchTerm).Click();
 		}
 	}
 }

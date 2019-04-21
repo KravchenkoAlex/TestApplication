@@ -1,9 +1,9 @@
-﻿using OpenQA.Selenium;
+﻿//using OpenQA.Selenium;
 
-namespace TestApplication.Common.PageObjects
-{
-	public class SearchPage : PageObject
-	{
-		public SearchPage(IWebDriver driver) : base(driver) { }
-	}
-}
+//namespace TestApplication.Common.PageObjects
+//{
+//	public class SearchPage : PageObject
+//	{
+//		public SearchPage(IWebDriver driver) : base(driver) { }
+//	}
+//}

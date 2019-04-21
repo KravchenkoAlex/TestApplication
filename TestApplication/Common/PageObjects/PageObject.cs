@@ -1,11 +1,11 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace TestApplication.Common.PageObjects
 {
 	public class PageObject
 	{
-		protected IWebDriver driver;
+		protected readonly IWebDriver driver;
 
 		public PageObject(IWebDriver driver)
 		{

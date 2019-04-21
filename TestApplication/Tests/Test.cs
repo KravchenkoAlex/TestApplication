@@ -12,6 +12,7 @@ namespace TestApplication
 		{
 			driver.Navigate().GoToUrl("https://rozetka.com.ua");
 			MainPage.FillSearchField("iphone");
+			MainPage.SelectDropdownProduct("iphone se");
 		}
 
 		private MainPage MainPage => _mainPage ?? (_mainPage = new MainPage(driver));
