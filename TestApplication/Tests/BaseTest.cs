@@ -4,14 +4,16 @@ using OpenQA.Selenium.Chrome;
 
 namespace TestApplication
 {
-    public class BaseTest
-    {
+	public class BaseTest
+	{
 		protected IWebDriver driver;
 
 		[SetUp]
 		protected void SetUp()
 		{
-			driver = new ChromeDriver(@"D:\TestProject\TestApplication\TestApplication\chromedriver");
+			ChromeOptions options = new ChromeOptions();
+			options.AddArgument("--start-maximized");
+			driver = new ChromeDriver(@"D:\TestProject\TestApplication\TestApplication\chromedriver", options);
 		}
 
 		[TearDown]
@@ -19,5 +21,5 @@ namespace TestApplication
 		{
 			driver.Quit();
 		}
-    }
+	}
 }

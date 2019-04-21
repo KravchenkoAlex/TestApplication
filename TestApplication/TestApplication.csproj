@@ -62,8 +62,10 @@
     <Compile Include="Common\PageObjects\MainPage.cs" />
     <Compile Include="Common\PageObjects\PageObject.cs" />
     <Compile Include="Common\PageObjects\SearchPage.cs" />
+    <Compile Include="Common\Support\Constants\Color.cs" />
     <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\PageObjects\ProductPage.cs" />
     <Compile Include="Tests\Test.cs" />
   </ItemGroup>
   <ItemGroup>
