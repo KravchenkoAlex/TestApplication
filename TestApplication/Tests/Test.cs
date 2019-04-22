@@ -24,9 +24,14 @@ namespace TestApplication
 		5. Add product to cart")]
 		public void AutotestTest()
 		{
+			#region TestData
+			string serchTerm = "iphone";
+			string serchDropdownTerm = "iphone se";
+			#endregion
+
 			Navigation.OpenSite(baseUrl);
-			MainPage.FillSearchField("iphone")
-				.SelectDropdownProduct("iphone se");
+			MainPage.FillSearchField(serchTerm)
+				.SelectDropdownProduct(serchDropdownTerm);
 			SearchPage.SelectRandomProductWithColor(Color.Pink);
 			ProductPage.SelectColor(Color.SilverGrey);
 			ProductPage.AddToCart();
