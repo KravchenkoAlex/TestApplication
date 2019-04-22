@@ -34,10 +34,10 @@ namespace TestApplication
 
 			Navigation.OpenSite(baseUrl);
 			MainPage.FillSearchField(serchTerm)
-				.SelectDropdownProduct(serchDropdownTerm);
-			SearchPage.SelectRandomProductWithColor(Color.Pink);
-			ProductPage.SelectColor(Color.SilverGrey);
-			ProductPage.AddToCart();
+				.SelectDropdownProduct(serchDropdownTerm)
+				.SelectRandomProductWithColor(Color.Pink)
+				.SelectColor(Color.SilverGrey)
+				.AddToCart();
 			Assert.True(CartPopup.CheckProductIsAddedToCart(), "Title is displayed that product is added to cart");
 		}
 

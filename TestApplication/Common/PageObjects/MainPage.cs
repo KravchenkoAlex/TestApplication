@@ -25,10 +25,11 @@ namespace TestApplication.Common.PageObjects
 			return this;
 		}
 
-		public void SelectDropdownProduct(string searchTerm)
+		public SearchPage SelectDropdownProduct(string searchTerm)
 		{
 			driver.WaitForElementToBeClickable(By.XPath("//ul[@class = 'suggest-list']"));
 			FindProductByTerm(searchTerm).Click();
+			return  new SearchPage(driver);
 		}
 	}
 }

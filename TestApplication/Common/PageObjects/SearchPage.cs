@@ -20,10 +20,11 @@ namespace TestApplication.Common.PageObjects
 			return unavailableElementsCount;
 		}
 		
-		public void SelectRandomProductWithColor(string color)
+		public ProductPage SelectRandomProductWithColor(string color)
 		{
 			int i = new Random().Next(1, GetProductsCountWithColor(color) - GetUnavailableProductsCountWithColor(color));
 			driver.FindElement(By.XPath($"(//a[@style = 'background-color: {color}']//ancestor::div[@data-view_type='catalog_with_hover'])[{i}]")).Click();
+			return new ProductPage(driver);
 		}
 	}
 }

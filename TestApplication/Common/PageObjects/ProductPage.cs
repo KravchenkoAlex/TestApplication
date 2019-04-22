@@ -22,22 +22,24 @@ namespace TestApplication.Common.PageObjects
 			return driver.FindElement(By.XPath($"//span[@style='background-color: {color};']/rz-svg-sprite[@classname='variants-i-icon-active']"));
 		}
 
-		public void SelectColor(string color)
+		public ProductPage SelectColor(string color)
 		{
 			driver.WaitForElementToBeClickable(Color(color));
 			if (! driver.IsElementPresent(By.XPath($"//span[@style='background-color: {color};']/rz-svg-sprite[@classname='variants-i-icon-active']")))
 			{
 				Color(color).Click();
 			}
+			return this;
 		}
 
-		public void AddToCart()
+		public CartPopup AddToCart()
 		{
 			if(!driver.IsElementPresent(_addToCartBtn))
 			{
 				throw new Exception($"Element {_addToCartBtn} is not available, Please relaunch test.");
 			}
 			_addToCartBtn.Click();
+			return new CartPopup(driver);
 		}
 	}
 }
