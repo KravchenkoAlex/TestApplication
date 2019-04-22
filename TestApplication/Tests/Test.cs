@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using TestApplication.Common.PageObjects;
 using TestApplication.Common.Support.Constants;
+using TestApplication.Common.Utils;
 
 namespace TestApplication
 {
@@ -9,6 +10,7 @@ namespace TestApplication
 		private MainPage _mainPage;
 		private SearchPage _searchPage;
 		private ProductPage _productPage;
+		private Navigation _navigation;
 
 		string baseUrl = "https://rozetka.com.ua";
 
@@ -22,7 +24,7 @@ namespace TestApplication
 		5. Add product to cart")]
 		public void AutotestTest()
 		{
-			driver.Navigate().GoToUrl(baseUrl);
+			Navigation.OpenSite(baseUrl);
 			MainPage.FillSearchField("iphone")
 				.SelectDropdownProduct("iphone se");
 			SearchPage.SelectRandomProductWithColor(Color.Pink);
@@ -33,5 +35,6 @@ namespace TestApplication
 		private MainPage MainPage => _mainPage ?? (_mainPage = new MainPage(driver));
 		private SearchPage SearchPage => _searchPage ?? (_searchPage = new SearchPage(driver));
 		private ProductPage ProductPage => _productPage ?? (_productPage = new ProductPage(driver));
+		private Navigation Navigation => _navigation ?? (_navigation = new Navigation(driver));
 	}
 }
