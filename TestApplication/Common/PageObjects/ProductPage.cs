@@ -24,7 +24,7 @@ namespace TestApplication.Common.PageObjects
 
 		public void SelectColor(string color)
 		{
-			driver.WaitForElementToBeClickable(By.XPath($"//span[@style='background-color: {color};']"));
+			driver.WaitForElementToBeClickable(Color(color));
 			if (! driver.IsElementPresent(By.XPath($"//span[@style='background-color: {color};']/rz-svg-sprite[@classname='variants-i-icon-active']")))
 			{
 				Color(color).Click();
@@ -33,6 +33,10 @@ namespace TestApplication.Common.PageObjects
 
 		public void AddToCart()
 		{
+			if(!driver.IsElementPresent(_addToCartBtn))
+			{
+				throw new Exception($"Element {_addToCartBtn} is not available, Please relaunch test.");
+			}
 			_addToCartBtn.Click();
 		}
 	}

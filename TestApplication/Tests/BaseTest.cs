@@ -13,7 +13,7 @@ namespace TestApplication
 		{
 			ChromeOptions options = new ChromeOptions();
 			options.AddArgument("--start-maximized");
-			driver = new ChromeDriver(@"D:\TestProject\TestApplication\TestApplication\chromedriver", options);
+			driver = new ChromeDriver(options);
 		}
 
 		[TearDown]
